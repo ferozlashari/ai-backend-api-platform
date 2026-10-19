@@ -1,0 +1,32 @@
+== auth ==
+  PASS: issued key has expected prefix
+  PASS: validates correct owner/tier
+  PASS: rejects unknown key
+  PASS: rejects revoked key
+  PASS: rejects invalid tier
+  PASS: tier limits defined for all standard tiers
+== rate limiter ==
+  PASS: allows exactly `burst` requests instantly
+  PASS: denies requests beyond burst
+  PASS: refills over time (1 req/s at 60rpm)
+  PASS: check_or_raise raises when exhausted
+  PASS: RateLimitExceeded includes retry_after
+  PASS: separate keys have independent buckets
+== cache ==
+  PASS: stores and retrieves a value
+  PASS: expired entries return None
+  PASS: LRU eviction removes least-recently-used entry
+  PASS: LRU eviction preserves recently-used entry
+  PASS: cache respects max_size
+  PASS: hit_rate tracks hits/misses correctly
+== model registry (real scikit-learn models) ==
+  PASS: latest version resolves correctly
+  PASS: prediction includes probability
+  PASS: high-risk profile predicts churn
+  PASS: explicit version overrides latest
+  PASS: low-risk profile predicts no_churn
+  PASS: raises on unknown model
+  PASS: list_models returns both versions
+  PASS: is_latest flag correct
+
+26 passed, 0 failed
